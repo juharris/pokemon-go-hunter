@@ -12,5 +12,6 @@ setup(
     requires=[
         'pushbullet.py',
         'python-twitter',
+        'PyYAML',
     ]
 )

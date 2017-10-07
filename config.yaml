@@ -1,0 +1,10 @@
+API:
+  Twitter:
+    access token key: TODO
+    access token secret: TODO
+    consumer key: TODO
+    consumer secret: TODO
+  Pushbullet:
+    api key: TODO
+    device name: TODO
+    encryption password: TODO
