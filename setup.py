@@ -9,7 +9,7 @@ setup(
     author="Justin Harris",
     author_email='',
     description="Find Pokemon in Pokemon Go.",
-    requires=[
+    install_requires=[
         'pushbullet.py',
         'python-twitter',
         'PyYAML',
