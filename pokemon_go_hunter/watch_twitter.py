@@ -53,9 +53,15 @@ def main(screen_name: str,
     logging.info("Waiting for tweets.")
     since_id = None
     while True:
-        statuses = _twitter_api.GetUserTimeline(screen_name=screen_name,
-                                                since_id=since_id,
-                                                trim_user=True)
+        try:
+            statuses = _twitter_api.GetUserTimeline(screen_name=screen_name,
+                                                    since_id=since_id,
+                                                    trim_user=True)
+        except:
+            logging.exception("Error getting tweets.")
+            time.sleep(period_s / 4)
+            continue
+
         for status in statuses:
             if since_id is None:
                 since_id = status.id
@@ -66,7 +72,10 @@ def main(screen_name: str,
             m = pattern.search(text)
             logging.debug(text)
             if m:
-                callback(status)
+                try:
+                    callback(status)
+                except:
+                    logging.exception("Callback failed.")
 
         time.sleep(period_s)
 
