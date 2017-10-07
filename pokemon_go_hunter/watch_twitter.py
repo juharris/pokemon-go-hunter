@@ -9,7 +9,7 @@ from pushbullet import Pushbullet
 
 
 def get_config():
-    config_path = os.path.join(os.path.abspath(__file__), '../../config.yaml')
+    config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../config.yaml')
     with open(config_path) as f:
         return yaml.load(f)
 
